@@ -12,7 +12,7 @@ CREATE TABLE animals(
 id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
 name VARCHAR(50) NOT NULL,
 date_of_birth DATE NOT NULL,
-escape_attempt INT,
+escape_attempts INT,
 neutered BIT,
 weight_kg FLOAT
 );  -- create a table with listed fields, properties and constraint
