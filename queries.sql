@@ -33,3 +33,32 @@ SELECT * FROM animals
 -- Find all animals with a weight between 10.4kg and 17.3kg (including the animals with the weights that equals precisely 10.4kg or 17.3kg)
 SELECT * FROM animals
   WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
+
+-- Vet clinic database: query and update animals table
+
+-- start a transaction
+BEGIN;
+
+-- Delete all animals born after Jan 1st, 2022.
+DELETE FROM animals
+WHERE date_of_birth > '2022-01-01';
+
+-- Create a savepoint for the transaction.
+SAVEPOINT animals_sp_1;
+
+-- Update all animals' weight to be their weight multiplied by -1.
+UPDATE animals
+SET weight_kg = weight_kg * -1;
+
+-- Rollback to the savepoint.
+ROLLBACK TO animals_sp_1;
+
+-- Update all animals' weights that are negative to be their weight multiplied by -1.
+UPDATE animals
+SET weight_kg = weight_kg * -1
+WHERE weight_kg < 0;
+
+-- Commit transaction.
+COMMIT;
+
+
