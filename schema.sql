@@ -18,3 +18,8 @@ weight_kg FLOAT
 );  -- create a table with listed fields, properties and constraint
 
 \d vet_clinic -- to view the created fields
+
+-- Add a new column to the table
+ALTER TABLE animals
+ADD COLUMN species VARCHAR(80);
+

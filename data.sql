@@ -8,10 +8,6 @@ INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg)
 
 SELECT * FROM animals;  -- to verify inserted data
 
--- Add a new column to the table
-ALTER TABLE animals
-ADD COLUMN species VARCHAR(80);
-
 -- Insert more animals
 INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES ('Charmander', '2020-02-08', 0, '0', -11),
