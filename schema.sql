@@ -23,3 +23,44 @@ weight_kg FLOAT
 ALTER TABLE animals
 ADD COLUMN species VARCHAR(80);
 
+--Query multiple table
+
+-- Create a table named owners
+CREATE TABLE owners (
+id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY ,
+full_name VARCHAR(100) NOT NULL,
+age INT 
+);
+
+-- Create a table named species
+CREATE TABLE species (
+id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+name VARCHAR(100) NOT NULL
+);
+
+-- Modify animals table
+
+-- Make sure that id is set as autoincremented PRIMARY KEY
+\d animals
+
+-- Remove column species
+ALTER TABLE animals
+DROP COLUMN species;
+
+-- Add column species_id which is a foreign key referencing species table
+-- Add the species_id column to the animals table
+ALTER TABLE animals ADD COLUMN species_id INT;
+
+-- Create the foreign key constraint
+ALTER TABLE animals ADD CONSTRAINT fk_species_id
+    FOREIGN KEY (species_id)
+    REFERENCES species (id);
+
+-- Add column owner_id which is a foreign key referencing owners table
+-- Add the owner_id column to the animals table
+ALTER TABLE animals ADD COLUMN owner_id INT;
+
+-- Create the foreign key constraint
+ALTER TABLE animals ADD CONSTRAINT fk_owner_id
+    FOREIGN KEY (owner_id)
+    REFERENCES owners (id);
