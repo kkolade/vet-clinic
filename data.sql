@@ -47,9 +47,9 @@ SET species_id =
 UPDATE animals
 SET owner_id =
     CASE
-        WHEN name = 'agumon' THEN (SELECT id FROM owners WHERE name = 'Sam Smith')
-        WHEN name = 'gubamon' OR name = 'pikachu' THEN (SELECT id FROM owners WHERE name = 'Jennifer Orwell')
-        WHEN name = 'devimon' OR name = 'plantmon' THEN (SELECT id FROM owners WHERE name = 'Bob')
-        WHEN name = 'charmander' OR name = 'squirtle' OR name = 'blossom' THEN (SELECT id FROM owners WHERE name = 'Melody Pond')
-        WHEN name = 'angemon' OR name = 'boarmon' THEN (SELECT id FROM owners WHERE name = 'Jennifer Orwell')
+        WHEN name = 'Agumon' THEN (SELECT id FROM owners WHERE full_name = 'Sam Smith')
+        WHEN name = 'Gubamon' OR name = 'Pikachu' THEN (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell')
+        WHEN name = 'Devimon' OR name = 'Plantmon' THEN (SELECT id FROM owners WHERE full_name = 'Bob')
+        WHEN name = 'Charmander' OR name = 'Squirtle' OR name = 'Blossom' THEN (SELECT id FROM owners WHERE full_name = 'Melody Pond')
+        WHEN name = 'Angemon' OR name = 'Boarmon' THEN (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
     END;
