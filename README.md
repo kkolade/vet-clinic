@@ -1,3 +1,4 @@
+![My logo](./images/kolakolade_favicon.png "a title")
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -114,6 +115,6 @@ Give a ⭐ if you like this project!
 <!-- LICENSE -->
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/kkolade/vet-clinic/blob/query-multiple-tables/LICENSE) licensed.
+This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
