@@ -102,3 +102,14 @@ animal_id INT NOT NULL,
 -- Alter visits table by adding column visit_date
 ALTER TABLE visits
 ADD COLUMN visit_date DATE NOT NULL;
+
+
+
+-- CREATE TABLE visits (
+--   id SERIAL PRIMARY KEY,
+--   vet_id INTEGER REFERENCES vets(id),
+--   animal_id INTEGER REFERENCES animals(id),
+--   visit_date DATE,
+--   -- Any additional columns can be added here
+--   CONSTRAINT unique_vet_animal_date UNIQUE (vet_id, animal_id, visit_date)
+-- );
