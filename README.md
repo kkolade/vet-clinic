@@ -1,4 +1,7 @@
-![My logo](./images/kolakolade_favicon.png "a title")
+
+<p align="center" width="200px">
+    <img width="33%" src="./images/kolakolade_favicon.png "> 
+</p>
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
