@@ -64,3 +64,52 @@ ALTER TABLE animals ADD COLUMN owner_id INT;
 ALTER TABLE animals ADD CONSTRAINT fk_owner_id
     FOREIGN KEY (owner_id)
     REFERENCES owners (id);
+
+-- JOIN TABLE
+-- Create a table named vets
+CREATE TABLE vets (
+id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
+name VARCHAR(50) NOT NULL,
+age INT NOT NULL, 
+date_of_graduation DATE NOT NULL
+);
+
+-- Create a "join table" called specializations to handle the relationship between the tables species and vets.
+CREATE TABLE specializations (
+vet_id INT NOT NULL,
+  CONSTRAINT fk_vet_id
+  FOREIGN KEY (vet_id)
+  REFERENCES vets(id),
+species_id INT NOT NULL,
+  CONSTRAINT fk_species_id
+  FOREIGN KEY (species_id)
+  REFERENCES species(id),
+PRIMARY KEY (vet_id, species_id)
+);
+
+-- Create a "join table" called visits to handle the relationship between the tables animals and vets.
+CREATE TABLE visits (
+vet_id INT NOT NULL,
+  CONSTRAINT fk_vet_id
+  FOREIGN KEY (vet_id)
+  REFERENCES vets(id),
+animal_id INT NOT NULL,
+  CONSTRAINT fk_animal_id
+  FOREIGN KEY (animal_id)
+  REFERENCES animals(id)
+);
+
+-- Alter visits table by adding column visit_date
+ALTER TABLE visits
+ADD COLUMN visit_date DATE NOT NULL;
+
+
+
+-- CREATE TABLE visits (
+--   id SERIAL PRIMARY KEY,
+--   vet_id INTEGER REFERENCES vets(id),
+--   animal_id INTEGER REFERENCES animals(id),
+--   visit_date DATE,
+--   -- Any additional columns can be added here
+--   CONSTRAINT unique_vet_animal_date UNIQUE (vet_id, animal_id, visit_date)
+-- );
